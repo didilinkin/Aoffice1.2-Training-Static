@@ -1,7 +1,7 @@
 # Aoffice1.2-Training-Static
 
 > 艾迦办公APP1.2 - WebView页面 - 服务-员工培训 - 静态页
-
+***
 > 打开调试模式 / 支持npm run dev调试 / 支持npm run build打包发版
 
 1. Vue build                                **standalone**
@@ -30,3 +30,6 @@ npm run e2e
 # run all tests
 npm test
 ```
+***
+### 如果更换图片 可使用Gulp来压缩图片( png格式图片压缩任务 )
+> 详情阅读 `gulpfile.js`

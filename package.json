@@ -1,7 +1,7 @@
 {
-  "name": "vue2-webpack-template-without-eslint",
+  "name": "Aoffice1.2-Training-Static",
   "version": "1.0.0",
-  "description": "基于 **Vue**@2.1.8 / **Vue-cli@2.6.0** 搭建的webpack模板 ( 未包含ESlint工具 ) —— 纯净模版 未添加任何无关依赖",
+  "description": "艾迦办公APP1.2 - WebView页面 - 服务-员工培训 - 静态页",
   "author": "yanxiaodi <929213769@qq.com>",
   "private": true,
   "scripts": {
@@ -13,12 +13,12 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
-    "muse-ui": "^2.0.0-rc.4",
+    "muse-ui": "^2.0.0-rc.3",
     "vue": "^2.1.0",
     "vuex": "^2.1.1"
   },
   "devDependencies": {
-    "autoprefixer": "^6.4.0",
+    "axios": "^0.15.3",
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
     "babel-plugin-istanbul": "^3.0.0",
@@ -39,8 +39,12 @@
     "file-loader": "^0.9.0",
     "friendly-errors-webpack-plugin": "^1.1.2",
     "function-bind": "^1.0.2",
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-util": "^3.0.8",
     "html-webpack-plugin": "^2.8.1",
     "http-proxy-middleware": "^0.17.2",
+    "imagemin-pngquant": "^5.0.0",
     "inject-loader": "^2.0.1",
     "json-loader": "^0.5.4",
     "karma": "^1.3.0",
