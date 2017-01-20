@@ -173,7 +173,7 @@ export default {
     ,mounted: function () {
         this.addCssLoading()
     }
-    ,methods: {
+    ,methods: { 
         addCssLoading: function () {
             setTimeout(() => {
                 const dataState = this.$data.cssLoading
