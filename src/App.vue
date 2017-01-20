@@ -1,6 +1,9 @@
 <template>
     <div id="app">
-        <div id="Service_Training">
+        <!-- 加载动画 -->
+        <CssLoading v-if="cssLoading.judgeShow" />
+        <!-- 数据成功时 去除加载动画 -->
+        <div id="Service_Training" v-else>
             <div class="training--info bC--while">                                                              <!-- 核心课程 -->
                 <Title :title_info = coreCourses />
                 <p> {{ coreCourses.textContent }} </p>
@@ -57,7 +60,7 @@ export default {
                 imgUrl: require('./assets/images/coursesImg.png')
             },
             openCourses: {
-                title: '公开课程',
+                title: '授课经历',
                 backgroundColor: '#FFF',
                 coursesArr: [
                     {
@@ -162,6 +165,23 @@ export default {
                     }
                 ]
             }
+            ,cssLoading: {
+                judgeShow: true
+            }
+        }
+    }
+    ,mounted: function () {
+        this.addCssLoading()
+    }
+    ,methods: {
+        addCssLoading: function () {
+            setTimeout(() => {
+                const dataState = this.$data.cssLoading
+                // console.log(dataState)
+                // console.dir(dataState)
+                // 更改
+                dataState.judgeShow = false
+            }, 2500)
         }
     }
     ,components: components

@@ -1,123 +1,147 @@
+<!-- 加载动画 -->
 <template lang="html">
-    <div class="peeek-loading" v-if="judgeShow">
-       <ul>
-           <li></li> <li></li>
-           <li></li> <li></li>
-           <li></li> <li></li>
-           <li></li> <li></li>
-           <li></li> <li></li>
-       </ul>
+    <div class="loading">
+        <div>
+            <div class="c1"></div>
+            <div class="c2"></div>
+            <div class="c3"></div>
+            <div class="c4"></div>
+        </div>
+        <span>loading</span>
     </div>
 </template>
-
-<script>
-export default {
-    props: [' judgeShow ']
-}
-</script>
 
 <style lang="sass" scoped>
 @import '../sass/main'
 
 // 加载动画
-.peeek-loading
-    background-color: rgb(255,94,27)
-    overflow: hidden
-    position: absolute
-    top: 0
-    bottom: 0
-    left: 0
-    right: 0
-    height: 100%
-    width: 100%
-    ul
-        position: absolute
-        left: calc(50% - 0.7em)
-        top: calc(50% - 4.2em)
-        display: inline-block
-        text-indent: 2.8em
-        li:after, &:after
-            width: 1.4em
-            height: 1.4em
-            background-color: #fff
-            border-radius: 100%
-        li:after
-            content: ""
-            display: block
-        &:after
-            content: ""
-            display: block
-            position: absolute
-            top: 2.8em
-    li
-        position: absolute
-        padding-bottom: 5.6em
-        top: 0
-        left: 0
-        &:nth-child(1)
-            transform: rotate(0deg)
-            animation-delay: 0.125s
-            &:after
-                animation-delay: 0.125s
-        &:nth-child(2)
-            transform: rotate(36deg)
-            animation-delay: 0.25s
-            &:after
-                animation-delay: 0.25s
-        &:nth-child(3)
-            transform: rotate(72deg)
-            animation-delay: 0.375s
-            &:after
-                animation-delay: 0.375s
-        &:nth-child(4)
-            transform: rotate(108deg)
-            animation-delay: 0.5s
-            &:after
-                animation-delay: 0.5s
-        &:nth-child(5)
-            transform: rotate(144deg)
-            animation-delay: 0.625s
-            &:after
-                animation-delay: 0.625s
-        &:nth-child(6)
-            transform: rotate(180deg)
-            animation-delay: 0.75s
-            &:after
-                animation-delay: 0.75s
-        &:nth-child(7)
-            transform: rotate(216deg)
-            animation-delay: 0.875s
-            &:after
-                animation-delay: 0.875s
-        &:nth-child(8)
-            transform: rotate(252deg)
-            animation-delay: 1s
-            &:after
-                animation-delay: 1s
-        &:nth-child(9)
-            transform: rotate(288deg)
-            animation-delay: 1.125s
-            &:after
-                animation-delay: 1.125s
-        &:nth-child(10)
-            transform: rotate(324deg)
-            animation-delay: 1.25s
-            &:after
-                animation-delay: 1.25s
-        animation: dotAnimation 2.5s infinite
-        &:after
-            animation: dotAnimationTwo 2.5s infinite
+.loading
+  width: 100%
+  height: 100%
+  background: $base-color
+  opacity: 0.9
+  position: fixed
+  >
+    div
+      width: 60px
+      height: 60px
+      position: absolute
+      left: 50%
+      margin-left: -30px
+      top: 50%
+      margin-top: -30px
+      >
+        div
+          content: ''
+          position: absolute
+          width: 16px
+          height: 16px
+          background: $theme-color
+          top: 10px
+          left: 10px
+          transform-origin: 20px 20px
+          border-radius: 8px
+          animation: spin-a 2s infinite cubic-bezier(0.5, 0, 0.5, 1)
+        .c2
+          top: 10px
+          left: auto
+          right: 10px
+          transform-origin: -4px 20px
+          animation: spin-b 2s infinite cubic-bezier(0.5, 0, 0.5, 1)
+        .c3
+          top: auto
+          left: auto
+          right: 10px
+          bottom: 10px
+          transform-origin: -4px -4px
+          animation: spin-c 2s infinite cubic-bezier(0.5, 0, 0.5, 1)
+        .c4
+          top: auto
+          bottom: 10px
+          transform-origin: 20px -4px
+          animation: spin-d 2s infinite cubic-bezier(0.5, 0, 0.5, 1)
+    span
+      width: 100px
+      height: 30px
+      position: absolute
+      left: 50%
+      margin-left: -50px
+      top: 50%
+      margin-top: 30px
+      color: $theme-color
+      font-size: 12px
+      text-align: center
 
-@keyframes dotAnimation
-    0%, 55%, 100%
-        padding: 0 0 5.6em 0
-    5%,50%
-        padding: 2.8em 0
-@-webkit-keyframes dotAnimationTwo
-    0%, 55%, 100%
-        opacity: 1
-        transform: scale(1)
-    5%,50%
-        opacity: .5
-        transform: scale(0.5)
+@keyframes spin-a
+  0%
+    transform: rotate(90deg)
+
+  0%
+    transform: rotate(90deg)
+
+  50%
+    transform: rotate(180deg)
+
+  75%
+    transform: rotate(270deg)
+
+  100%
+    transform: rotate(360deg)
+
+
+@keyframes spin-b
+  0%
+    transform: rotate(90deg)
+
+  25%
+    transform: rotate(90deg)
+
+  25%
+    transform: rotate(180deg)
+
+  75%
+    transform: rotate(270deg)
+
+  100%
+    transform: rotate(360deg)
+
+
+@keyframes spin-c
+  0%
+    transform: rotate(90deg)
+
+  25%
+    transform: rotate(90deg)
+
+  50%
+    transform: rotate(180deg)
+
+  50%
+    transform: rotate(270deg)
+
+  100%
+    transform: rotate(360deg)
+
+
+@keyframes spin-d
+  0%
+    transform: rotate(90deg)
+
+  25%
+    transform: rotate(90deg)
+
+  50%
+    transform: rotate(180deg)
+
+  75%
+    transform: rotate(270deg)
+
+  75%
+    transform: rotate(360deg)
+
+  100%
+    transform: rotate(360deg)
+
+.content
+  padding: 1.5em
 </style>
