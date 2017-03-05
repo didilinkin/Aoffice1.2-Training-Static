@@ -1,43 +1,40 @@
-<template>
-    <div id="app">
-        <!-- 加载动画 -->
-        <CssLoading v-if="cssLoading.judgeShow" />
-        <!-- 数据成功时 去除加载动画 -->
-        <div id="Service_Training" v-else>
-            <div class="training--info bC--while">                                                              <!-- 核心课程 -->
-                <Title :title_info = coreCourses />
-                <p> {{ coreCourses.textContent }} </p>
-            </div>
-            <div class="training--info bC--lucency">                                                            <!-- 课程图片 -->
-                <img :src="coursesImg.imgUrl" />
-            </div>
-            <div class="training--info bC--while">                                                              <!-- 公开课程 -->
-                <Title :title_info = openCourses />
-                <div class="openCourses--box" v-for="item in openCourses.coursesArr">
-                    <h3> {{ item.title }} </h3>
-                    <p> {{ item.textContent }} </p>
-                </div>
-            </div>
-            <div class="training--info bC--while">                                                              <!-- 海外交流 -->
-                <Title :title_info = overseasExchange />
-                <img :src="overseasExchange.imgUrl" />
-                <div class="overseasExchange--box" v-for="item in overseasExchange.exchangeArr">
-                    <h3> {{ item.title }} </h3>
-                    <p> {{ item.textContent }} </p>
-                </div>
-            </div>
-            <div class="training--info bC--while">                                                              <!-- 讲师介绍 -->
-                <Title :title_info = teacherIntroduction />
-                <div class="teacherIntroduction--box" v-for="item in teacherIntroduction.teacherArr">
-                    <img :src="item.imgUrl" />
-                    <div class="teacherInfo" v-for="item in item.teacherInfoArr">
-                        <h3> {{ item.title }} </h3>
-                        <p> {{ item.textContent }} </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<template lang="pug">
+
+#app
+    <!-- 加载动画 -->
+    CssLoading( v-if="cssLoading.judgeShow" )
+
+    <!-- 数据成功时 去除加载动画 -->
+    #Service_Training( v-else )
+
+        div( class="training--info bC--lucency" )                                                           <!-- 核心课程 -->
+            Title( v-bind:title_info = coreCourses )
+            p {{ coreCourses.textContent }}
+
+        div( class="training--info bC--lucency" )                                                           <!-- 课程图片 -->
+            img( v-bind:src="coursesImg.imgUrl" )
+
+        div( class="training--info bC--lucency" )                                                           <!-- 公开课程 -->
+            Title( :title_info = openCourses )
+            .openCourses--box( v-for="item in openCourses.coursesArr" )
+                h3 {{ item.title }}
+                p {{ item.textContent }}
+
+        div( class="training--info bC--while" )                                                             <!-- 海外交流 -->
+            Title( v-bind:title_info = overseasExchange )
+            img( v-bind:src="overseasExchange.imgUrl" )
+            .overseasExchange--box( v-for="item in overseasExchange.exchangeArr" )
+                h3 {{ item.title }}
+                p {{ item.textContent }}
+
+        div( class="training--info bC--while" )                                                             <!-- 讲师介绍 -->
+            Title( v-bind:title_info = teacherIntroduction )
+            .teacherIntroduction--box( v-for="item in teacherIntroduction.teacherArr" )
+                img( v-bind:src="item.imgUrl" )
+                .teacherInfo( v-for="item in item.teacherInfoArr" )
+                    h3 {{ item.title }}
+                    p {{ item.textContent }}
+
 </template>
 
 <script>
@@ -173,13 +170,10 @@ export default {
     ,mounted: function () {
         this.addCssLoading()
     }
-    ,methods: { 
+    ,methods: {
         addCssLoading: function () {
             setTimeout(() => {
                 const dataState = this.$data.cssLoading
-                // console.log(dataState)
-                // console.dir(dataState)
-                // 更改
                 dataState.judgeShow = false
             }, 2500)
         }
